@@ -1,0 +1,31 @@
+server:
+  port: 8121
+spring:
+  application:
+    name: flance-gateway
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        namespace: fe1198f5-850c-4f54-8cf1-0bcdbd118654
+        server-addr: 127.0.0.1:8848
+        group: dev
+      config:
+        namespace: fe1198f5-850c-4f54-8cf1-0bcdbd118654
+        server-addr: 127.0.0.1:8848
+        # 网关路由
+        extension-configs[0]:
+          group: dev-gateway
+          data-id: dev-gateway-route.yml
+          file-extension: yml
+        # redis配置
+        extension-configs[1]:
+          group: dev-redis-group
+          data-id: dev-redis.yml
+          file-extension: yml
+        # 开启actuator端点
+        extension-configs[2]:
+          group: dev-actuator-open
+          data-id: dev-actuator-open.yml
+          file-extension: yml

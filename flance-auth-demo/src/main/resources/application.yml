@@ -1,0 +1,5 @@
+security:
+  oauth2:
+    authorization:
+      check-token-access: permitAll()
+      token-key-access: permitAll()

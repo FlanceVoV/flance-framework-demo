@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: flance-demo
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      config:
+#        group: dev-jdbc-group
+        namespace: fe1198f5-850c-4f54-8cf1-0bcdbd118654
+        server-addr: 127.0.0.1:8848
+        extension-configs[0]:
+          group: dev-jdbc-group
+          data-id: dev-jdbc.yml
+          file-extension: yml
+        extension-configs[1]:
+          group: dev-redis-group
+          data-id: dev-redis.yml
+          file-extension: yml
+      discovery:
+        namespace: fe1198f5-850c-4f54-8cf1-0bcdbd118654
+        server-addr: 127.0.0.1:8848
+        group: dev
+
+
+#  datasource:
+#    url: jdbc:mysql://192.168.0.85:3306/demo_test?useUnicode=true&characterEncoding=utf-8
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true

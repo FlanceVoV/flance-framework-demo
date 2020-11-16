@@ -1,0 +1,42 @@
+server:
+  port: 8120
+spring:
+  application:
+    name: flance-auth
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        namespace: fe1198f5-850c-4f54-8cf1-0bcdbd118654
+        server-addr: 127.0.0.1:8848
+        group: dev
+      config:
+        namespace: fe1198f5-850c-4f54-8cf1-0bcdbd118654
+        server-addr: 127.0.0.1:8848
+        # redis配置
+        extension-configs[0]:
+          group: dev-redis-group
+          data-id: dev-redis.yml
+          file-extension: yml
+        # jdbc配置
+        extension-configs[1]:
+          group: dev-jdbc-group
+          data-id: dev-jdbc.yml
+          file-extension: yml
+        # 开启actuator端点
+        extension-configs[2]:
+          group: dev-actuator-open
+          data-id: dev-actuator-open.yml
+          file-extension: yml
+        # oauth-key
+        extension-configs[3]:
+          group: dev-oauth
+          data-id: dev-oauth-key.properties
+          file-extension: properties
+        # url白名单
+        extension-configs[4]:
+          group: dev-url-white-list
+          data-id: white-list.yml
+          file-extension: yml
+          refresh: true
