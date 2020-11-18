@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -61,6 +62,15 @@ public class UserController extends BaseWebController<User, UserDto, UserVo, Use
         userDo.filterUserRoles(roleIds);
         UserDto userDto = userParser.parseDo2Dto(userDo);
         return userParser.parseDto2Vo(userDto);
+    }
+
+    @GetMapping("/test")
+    public Object test() {
+        UserDto userDto = userService.findOneByProps(new HashMap<String, String>(){{
+            put("id", "123");
+            put("userName", "测试5");
+        }});
+        return userDto;
     }
 
     @GetMapping("/batchInsertTest")
