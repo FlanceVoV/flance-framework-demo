@@ -40,6 +40,6 @@ public class Role extends BaseRole {
 
     @Override
     public List<? extends BaseAuthority> getAuthorities() {
-        return null;
+        return this.auths;
     }
 }

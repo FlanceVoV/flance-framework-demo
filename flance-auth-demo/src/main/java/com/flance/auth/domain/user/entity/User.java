@@ -1,5 +1,6 @@
 package com.flance.auth.domain.user.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.flance.auth.domain.role.entity.Role;
 import com.flance.web.auth.model.BaseRole;
 import com.flance.web.auth.model.BaseUser;
@@ -19,6 +20,7 @@ import java.util.List;
 @Data
 @DynamicInsert
 @DynamicUpdate
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
 public class User extends BaseUser {
 
     @Id
