@@ -9,6 +9,7 @@ import com.flance.demo.domain.user.parser.UserParser;
 import com.flance.demo.domain.user.service.UserService;
 import com.flance.jdbc.jpa.web.controller.BaseWebController;
 import com.flance.web.common.request.WebResponse;
+import com.flance.web.common.utils.CurrentUserUtil;
 import com.flance.web.common.utils.ResponseBuilder;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +66,8 @@ public class UserController extends BaseWebController<User, UserDto, UserVo, Use
     }
 
     @GetMapping("/test")
-    public Object test() {
+    public Object test(HttpServletRequest request) {
+        Object obj = CurrentUserUtil.getUser(request, Object.class);
         UserDto userDto = userService.findOneByProps(new HashMap<String, String>(){{
             put("id", "123");
             put("userName", "测试5");
