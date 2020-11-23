@@ -9,9 +9,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.flance"})
-@EnableJpaRepositories(basePackages = {"com.flance.demo.domain","com.flance.components.fastdfs.domain","com.flance.components.form.domain"})
-@EntityScan(basePackages = {"com.flance.demo.domain","com.flance.components.fastdfs.domain","com.flance.components.form.domain"})
+@ComponentScan(basePackages = {"com.flance.*"})
+@EnableJpaRepositories(basePackages = {"com.flance.*.domain","com.flance.components.*.domain"})
+@EntityScan(basePackages = {"com.flance.*.domain","com.flance.components.*.domain"})
 public class DemoApplication {
 
     public static void main(String[] args) {

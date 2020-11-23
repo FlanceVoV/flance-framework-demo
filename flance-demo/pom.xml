@@ -29,6 +29,11 @@
         </dependency>
 
         <dependency>
+            <groupId>com.flance</groupId>
+            <artifactId>flance-components-questionbank</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
