@@ -8,9 +8,8 @@ import com.flance.demo.domain.user.model.vo.UserVo;
 import com.flance.demo.domain.user.parser.UserParser;
 import com.flance.demo.domain.user.service.UserService;
 import com.flance.jdbc.jpa.web.controller.BaseWebController;
-import com.flance.web.common.request.WebResponse;
 import com.flance.web.common.utils.CurrentUserUtil;
-import com.flance.web.common.utils.ResponseBuilder;
+import com.flance.web.utils.web.response.WebResponse;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,9 +50,9 @@ public class UserController extends BaseWebController<User, UserDto, UserVo, Use
         UserDto userDto = userService.findOneByProp("userName", userName);
         boolean loginResult = userParser.parseDto2Do(userDto).checkPassword(password);
         if (loginResult) {
-            return ResponseBuilder.getSuccess(WebResponse.builder().singleResult(userParser.parseDto2Vo(userDto)).build());
+            return WebResponse.getSucceed(userParser.parseDto2Vo(userDto), "请求成功");
         }
-        return ResponseBuilder.getFail(WebResponse.builder().resultMsg("登录失败").build());
+        return WebResponse.getFailed("-1", "请求成功");
     }
 
     @GetMapping("/filterUserRole")
